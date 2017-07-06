@@ -1,0 +1,27 @@
+CREATE TABLE [dbo].[Vendors] (
+    [ID]             INT           IDENTITY (200000, 1) NOT NULL,
+    [Name]           VARCHAR (50)  NULL,
+    [Address 1]      VARCHAR (50)  NULL,
+    [Address 2]      VARCHAR (50)  NULL,
+    [City]           VARCHAR (50)  NULL,
+    [State]          VARCHAR (50)  NULL,
+    [Country]        VARCHAR (50)  NULL,
+    [Zip]            VARCHAR (50)  NULL,
+    [Website]        VARCHAR (50)  NULL,
+    [Tags]           VARCHAR (50)  NULL,
+    [Phone]          VARCHAR (50)  NULL,
+    [Fax]            VARCHAR (50)  NULL,
+    [Image]          IMAGE         NULL,
+    [Language]       VARCHAR (50)  NULL,
+    [Internal Notes] VARCHAR (50)  NULL,
+    [Email]          VARCHAR (50)  NULL,
+    [Active]         BIT           DEFAULT ((0)) NOT NULL,
+    [OrganizationID] INT           NULL,
+    [Mode]           VARCHAR (MAX) NULL,
+    [Type]           VARCHAR (MAX) NULL,
+    [Password]       VARCHAR (50)  NULL,
+    [Role]           NVARCHAR (50) NULL,
+    PRIMARY KEY CLUSTERED ([ID] ASC),
+    FOREIGN KEY ([OrganizationID]) REFERENCES [dbo].[Org] ([ID])
+);
+
