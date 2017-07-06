@@ -1,0 +1,21 @@
+CREATE TABLE [dbo].[JobPositions] (
+    [Id]                    INT           IDENTITY (300000, 1) NOT NULL,
+    [NoofPositions]         INT           NULL,
+    [MaxHourRate]           INT           NULL,
+    [Location]              VARCHAR (MAX) NULL,
+    [ExperienceFrom]        INT           NULL,
+    [ExperienceTo]          INT           NULL,
+    [StartDate]             DATE          NULL,
+    [WeeklyPaidTravel]      BIT           DEFAULT ((0)) NOT NULL,
+    [Duration]              INT           NULL,
+    [ResidenceStatus]       VARCHAR (50)  NULL,
+    [MustHaveSkills]        VARCHAR (50)  NULL,
+    [Nicetohave]            VARCHAR (50)  NULL,
+    [IncludePersonalTraits] BIT           DEFAULT ((0)) NOT NULL,
+    [Published]             BIT           DEFAULT ((0)) NOT NULL,
+    [JobtitleId]            INT           NULL,
+    [OrganizationId]        INT           NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    FOREIGN KEY ([OrganizationId]) REFERENCES [dbo].[Org] ([ID]),
+    FOREIGN KEY ([JobtitleId]) REFERENCES [dbo].[JobTitle] ([Id])
+);
